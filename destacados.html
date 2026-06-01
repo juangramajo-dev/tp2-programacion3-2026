@@ -1,21 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="e">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Destacados</title>
-</head>
-<body>
-   <header class="container">
-        <nav class="navbar">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="destacados.html">Destacados</a></li>
-                <li><a href="listado.html">Listado</a></li>
-            </ul>
-        </nav>
+  </head>
+  <body>
+    <header class="container">
+      <nav class="navbar">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="destacados.html">Destacados</a></li>
+          <li><a href="listado.html">Listado</a></li>
+        </ul>
+      </nav>
     </header>
-      <footer>Ejercicio 2 - Programación 3</footer>
-</body>
+    <section class="container">
+      <h1>Películas destacadas</h1>
+      <div class="info-box">Hacé clic en cada tarjeta para seleccionarla o deseleccionarla.</div>
+
+      <div class="container">
+          <div id="tarjetas-container"></div>
+          <div class="info-box" id="info-seleccion">
+            Tarjetas seleccionadas: 0
+          </div>
+      </div>
+    </section>
+    <footer>Ejercicio 2 - Programación 3</footer>
+
+    <script>
+    let peliculas = [
+      { titulo: "Interestelar",    descripcion: "Viaje épico por el espacio-tiempo.", anio: 2014 },
+      { titulo: "Coco",            descripcion: "Un niño viaja a la Tierra de los Muertos.", anio: 2017 },
+      { titulo: "Matrix",          descripcion: "¿Qué es real y qué es simulación?", anio: 1999 },
+      { titulo: "Mi Vecino Totoro", descripcion: "Dos hermanas descubren criaturas mágicas.", anio: 1988 },
+      { titulo: "Volver al Futuro", descripcion: "Un viaje en el tiempo accidental.", anio: 1985 }
+    ];
+
+    let contenedorTarjetas = document.getElementById("tarjetas-container");
+
+    peliculas.forEach(function (pelicula) {
+      let tarjeta = document.createElement("div");
+      tarjeta.classList.add("tarjeta");
+
+      tarjeta.innerHTML =
+        '<h3>' + pelicula.titulo + '</h3>' +
+        '<p>' + pelicula.descripcion + '</p>' +
+        '<p>📅 ' + pelicula.anio + '</p>';
+
+      tarjeta.addEventListener("click", function () {
+        tarjeta.classList.toggle("seleccionada"); 
+        actualizarContador();
+      });
+
+      contenedorTarjetas.appendChild(tarjeta);
+    });
+    let infoSeleccion = document.getElementById("info-seleccion");
+
+    function actualizarContador() {
+      let seleccionadas = document.querySelectorAll(".tarjeta.seleccionada");
+      let cantidad = seleccionadas.length;
+
+      if (cantidad === 0) {
+        infoSeleccion.textContent = "Tarjetas seleccionadas: 0";
+      } else if (cantidad === 1) {
+        infoSeleccion.textContent = "1 tarjeta seleccionada ✔️";
+      } else {
+        infoSeleccion.textContent = cantidad + " tarjetas seleccionadas ✔️";
+      }
+    }
+  </script>
+  </body>
 </html>
