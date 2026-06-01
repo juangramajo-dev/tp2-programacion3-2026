@@ -7,15 +7,76 @@
     <title>Listado</title>
   </head>
   <body>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="destacados.html">Destacados</a></li>
+        <li><a href="listado.html">Listado</a></li>
+      </ul>
+    </nav>
     <header class="container">
-      <nav class="navbar">
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="destacados.html">Destacados</a></li>
-          <li><a href="listado.html">Listado</a></li>
-        </ul>
-      </nav>
+      <h1>Alimentos</h1>
+      <div class="info-box">
+        Filtrá los alimentos por categoría usando los botones.
+      </div>
     </header>
-      <footer>Ejercicio 3 - Programación 3</footer>
+ <section class="container">
+  <div class="filtros">
+      <button class="btn" id="btn-todos">Mostrar todos</button>
+      <button class="btn" id="btn-frutas">Solo frutas</button>
+    <div >
+      <div  id="listado-container"></div>
+
+    </div>
+ </section>
+    <footer>Ejercicio 3 - Programación 3</footer>
+
+     <script>
+ 
+    let alimentos = [
+      { nombre: "Frutilla",    emoji: "🍓", categoria: "fruta" },
+      { nombre: "Banana",      emoji: "🍌", categoria: "fruta" },
+      { nombre: "Manzana",     emoji: "🍎", categoria: "fruta" },
+      { nombre: "Lechuga",     emoji: "🥬", categoria: "verdura" },
+      { nombre: "Zanahoria",   emoji: "🥕", categoria: "verdura" },
+      { nombre: "Brócoli",     emoji: "🥦", categoria: "verdura" },
+      { nombre: "Naranja",     emoji: "🍊", categoria: "fruta" },
+      { nombre: "Tomate",      emoji: "🍅", categoria: "verdura" }
+    ];
+
+    let contenedorListado = document.getElementById("listado-container");
+
+  
+    function mostrarAlimentos(lista) {
+      let htmlBloques = lista.map(function (item) {
+        return (
+          '<div class="bloque-item">' +
+            '<h3>' + item.emoji + ' ' + item.nombre + '</h3>' +
+            '<span class="categoria">' + item.categoria + '</span>' +
+          '</div>'
+        );
+      });
+
+      contenedorListado.innerHTML = htmlBloques.join("");
+    }
+
+    mostrarAlimentos(alimentos);
+
+
+    let btnTodos  = document.getElementById("btn-todos");
+    let btnFrutas = document.getElementById("btn-frutas");
+
+    btnTodos.addEventListener("click", function () {
+      mostrarAlimentos(alimentos);
+    });
+
+    btnFrutas.addEventListener("click", function () {
+      let soloFrutas = alimentos.filter(function (item) {
+        return item.categoria === "fruta";
+      });
+
+      mostrarAlimentos(soloFrutas);
+    });
+  </script>
   </body>
 </html>

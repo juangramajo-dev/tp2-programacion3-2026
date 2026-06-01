@@ -7,7 +7,7 @@
     <title>Inicio</title>
   </head>
   <body>
-    <header class="container">
+    <div class="menu-container">
       <nav class="navbar">
         <ul>
           <li><a href="index.html">Inicio</a></li>
@@ -15,9 +15,12 @@
           <li><a href="listado.html">Listado</a></li>
         </ul>
       </nav>
+    </div>
+
+    <header class="container">
+      <h1>Listado de meriendas</h1>
     </header>
     <section class="container">
-      <h1>Listado de meriendas</h1>
       <div class="container">
         <div id="lista-meriendas"></div>
 
@@ -30,7 +33,7 @@
         </div>
       </div>
     </section>
-  
+
     <script>
       let meriendas = [
         "Medialunas",
@@ -63,6 +66,6 @@
         infoConteo.textContent = "¡Hay " + cantidad + " meriendas!";
       });
     </script>
-      <footer>Ejercicio 1 - Programación 3</footer>
+    <footer>Ejercicio 1 - Programación 3</footer>
   </body>
 </html>
