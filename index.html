@@ -16,6 +16,53 @@
         </ul>
       </nav>
     </header>
+    <section class="container">
+      <h1>Listado de meriendas</h1>
+      <div class="container">
+        <div id="lista-meriendas"></div>
+
+        <div style="text-align: center; margin-top: 24px">
+          <button class="btn" id="btn-contar">Contar meriendas</button>
+        </div>
+
+        <div class="info-box" id="info-conteo">
+          Hacé clic en el botón para saber cuántas meriendas hay.
+        </div>
+      </div>
+    </section>
+  
+    <script>
+      let meriendas = [
+        "Medialunas",
+        "Galletas",
+        "Muffin de chocolate",
+        "Manzana con miel",
+        "Mix de frutos secos",
+        "Tostadas con mermelada",
+        "Jugo de naranja",
+      ];
+
+      let contenedor = document.getElementById("lista-meriendas");
+
+      function mostrarMeriendas() {
+        let items = meriendas.map(function (merienda) {
+          return '<div class="merienda-item">' + merienda + "</div>";
+        });
+
+        contenedor.innerHTML = items.join("");
+      }
+
+      mostrarMeriendas();
+
+      let botonContar = document.getElementById("btn-contar");
+      let infoConteo = document.getElementById("info-conteo");
+
+      botonContar.addEventListener("click", function () {
+        let cantidad = meriendas.length;
+
+        infoConteo.textContent = "¡Hay " + cantidad + " meriendas!";
+      });
+    </script>
       <footer>Ejercicio 1 - Programación 3</footer>
   </body>
 </html>

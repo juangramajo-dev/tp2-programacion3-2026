@@ -37,6 +37,13 @@ footer {
   font-size: 0.85rem;
 }
 
+
+h1 {
+  text-align: center;
+  margin: 0px 0;
+  font-size: 2.5rem;
+}
+
 .navbar {
   background-color: var(--secondary-color);
   padding: 1rem;
@@ -65,3 +72,62 @@ footer {
   padding: 1rem;
 }
 
+#lista-meriendas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.merienda-item {
+  width: 170px;
+  height: 110px;
+  padding: 18px 14px;
+  margin: 4px;
+  border: 2px solid var(--secondary-color);
+  border-radius: 14px;
+  background: var(--primary-color);
+  color: var(--text-color);
+  text-align: center;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.merienda-item:hover {
+  border-color: var(--accent-color);
+  transform: scale(1.05);
+  box-shadow: 0 4px 18px rgba(233, 69, 96, 0.25);
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px; /* padding */
+  margin: 8px 6px; /* margin */
+  border: 2px solid var(--accent-color); /* border */
+  border-radius: 10px;
+  background-color: transparent;
+  color: var(--accent-color);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+}
+
+.info-box {
+  text-align: center;
+  padding: 16px 24px;
+  margin: 20px auto;
+  border-radius: 12px;
+  max-width: 500px;
+  font-size: 25px;
+  font-weight: 500;
+}
